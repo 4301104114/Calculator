@@ -67,7 +67,7 @@ body {
    margin: 20px 0 0 0;
 }
 
-.calculator-function__btnsNumbers-block .btn__number{
+.calculator-function__btnsNumbers-block .btn-number{
    flex: 0 0 120px;
    font-size: 40px;
    background-color: #404258;
@@ -79,11 +79,11 @@ body {
    justify-content: center;
 }
 
-.calculator-function__btnsNumbers-block .btn__number:hover{
+.calculator-function__btnsNumbers-block .btn-number:hover{
    opacity: 0.8;
 }
 
-.calculator-function__btnsNumbers-block  .btn__number-icon{
+.calculator-function__btnsNumbers-block  .btn-number-icon{
    font-size: 40px;
 }
 
