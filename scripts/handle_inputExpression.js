@@ -1,5 +1,6 @@
-let inputExpression = function(expression){
-
+let inputExpression = function(element){
+   
+   console.log(element);
 }
 
 let validateExpression = function(expression){

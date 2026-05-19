@@ -1,4 +1,4 @@
-import {add} from './calcalator.js';
+import {add,power} from './calcalator.js';
 import{
     inputExpression,
     validateExpression,
@@ -6,10 +6,14 @@ import{
     outputResult
 } from './handle_inputExpression.js';
 
-function main(){
-    
+function main(elementSelector){
+
+   let Calculator = document.querySelector(`.${elementSelector}`);
+
+    console.log(Calculator);
+   //inputExpression(Calculator);
    
 
 }
 
-main();
+export { main };

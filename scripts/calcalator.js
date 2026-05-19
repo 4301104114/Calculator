@@ -17,4 +17,13 @@ let divide = (number1, number2) => {
     return number1 / number2;
 }
 
-export { add, subtract, multiply, divide };
+let power = (number, power) => {
+    let result = 1;
+    
+    for(let index = 1; index <= power; index++){
+        result *= number;
+    }
+    return result;
+}
+
+export { add, subtract, multiply, divide, power };
