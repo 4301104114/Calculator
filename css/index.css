@@ -103,7 +103,7 @@ body {
    margin: 0 0 0 90px;
 }
 
-.calculator__btnsOperators-block .btn__operator{
+.calculator__btnsOperators-block .btn-operator{
    flex: 0 0 110px;
    font-size: 40px;
    background-color: #F49D1A;
@@ -116,7 +116,7 @@ body {
    margin: 20px 0 0 0px;
 }
 
-.calculator__btnsOperators-block .btn__operator:hover{
+.calculator__btnsOperators-block .btn-operator:hover{
    opacity: 0.8;
 }
  

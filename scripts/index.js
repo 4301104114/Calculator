@@ -10,8 +10,7 @@ function main(elementSelector){
 
    let Calculator = document.querySelector(`.${elementSelector}`);
 
-    console.log(Calculator);
-   //inputExpression(Calculator);
+   inputExpression(Calculator);
    
 
 }
