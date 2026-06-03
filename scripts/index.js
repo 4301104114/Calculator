@@ -3,7 +3,8 @@ import{
     inputExpression,
     validateExpression,
     calculateExpression,
-    outputResult
+    outputResult,
+    getValueInputExpression
 } from './handle_inputExpression.js';
 
 function main(elementSelector){

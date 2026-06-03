@@ -1,8 +1,10 @@
+let getValueInputExpressionForm ;
+
 let inputExpression = function(element){
     //get all blocks with numbers
     let blocksNumbers = element.querySelectorAll('.calculator-function__btnsNumbers-block');
-    let inputExpression = element.querySelector('.calculator-monitor__inputExpression');
-    inputExpression.value = '';
+    let valueInputExpression = element.querySelector('.calculator-monitor__inputExpression');
+    valueInputExpression.value = '';
 
     blocksNumbers.forEach(function(blockNumber){
 
@@ -10,9 +12,12 @@ let inputExpression = function(element){
 
         buttonsNumbers.forEach(function(buttonNumber){
 
-            buttonNumber.addEventListener('click', function(event){
-                inputExpression.value += event.target.innerText;
-            });
+            if(!buttonNumber.matches('.btn-number-icon')){
+
+                buttonNumber.addEventListener('click', function(event){
+                    valueInputExpression.value += event.target.innerText;
+                });
+            }
 
         });
     });
@@ -23,22 +28,31 @@ let inputExpression = function(element){
         let buttonsOperators = blockOperator.querySelectorAll('.btn-operator');
         buttonsOperators.forEach(function(buttonOperator){
             buttonOperator.addEventListener('click', function(event){
-                inputExpression.value += event.target.innerText;
+                valueInputExpression.value += event.target.innerText;
             });
         });
     });
+    
+    getValueInputExpressionForm = valueInputExpression.value;
+
 }
+
+let getValueInputExpression = function(element){
+   
+}
+
 
 let validateExpression = function(expression){
 
 }
 
-let calculateExpression = function(expression){
+let calculateExpression = function( expression){
 
+   
 }
 
 let outputResult = function(result){
 
 }
 
-export {inputExpression, validateExpression, calculateExpression, outputResult};
+export {inputExpression, validateExpression, calculateExpression, outputResult, getValueInputExpression};

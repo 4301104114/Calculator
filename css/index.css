@@ -83,7 +83,7 @@ body {
    opacity: 0.8;
 }
 
-.calculator-function__btnsNumbers-block  .btn-number-icon{
+.calculator-function__btnsNumbers-block  .btn-number-icon .icon-backspace{
    font-size: 40px;
 }
 
