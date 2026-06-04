@@ -51,14 +51,14 @@ body {
    flex-wrap: wrap;
 }
 
-.calculator-function__btnsNumbers {
+.calculator-function__btnsOperands {
    flex: 1.2;
    flex-direction: column;
    display: flex;
 
 }
 
-.calculator-function__btnsNumbers-block{
+.calculator-function__btnsOperands-block{
    display: flex;
    flex-direction: row;
    justify-content: space-between;
@@ -67,7 +67,7 @@ body {
    margin: 20px 0 0 0;
 }
 
-.calculator-function__btnsNumbers-block .btn-number{
+.calculator-function__btnsOperands-block .btn-operand{
    flex: 0 0 120px;
    font-size: 40px;
    background-color: #404258;
@@ -79,11 +79,11 @@ body {
    justify-content: center;
 }
 
-.calculator-function__btnsNumbers-block .btn-number:hover{
+.calculator-function__btnsOperands-block .btn-operand:hover{
    opacity: 0.8;
 }
 
-.calculator-function__btnsNumbers-block  .btn-number-icon .icon-backspace{
+.calculator-function__btnsOperands-block  .btn-operand-icon .icon-backspace{
    font-size: 40px;
 }
 
