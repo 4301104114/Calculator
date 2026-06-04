@@ -2,17 +2,17 @@ let getValueInputExpressionForm ;
 
 let inputExpression = function(element){
     //get all blocks with numbers
-    let blocksNumbers = element.querySelectorAll('.calculator-function__btnsNumbers-block');
+    let blocksNumbers = element.querySelectorAll('.calculator-function__btnsOperands-block');
     let valueInputExpression = element.querySelector('.calculator-monitor__inputExpression');
     valueInputExpression.value = '';
 
     blocksNumbers.forEach(function(blockNumber){
 
-        let buttonsNumbers = blockNumber.querySelectorAll('.btn-number');
+        let buttonsNumbers = blockNumber.querySelectorAll('.btn-operand');
 
         buttonsNumbers.forEach(function(buttonNumber){
 
-            if(!buttonNumber.matches('.btn-number-icon')){
+            if(!buttonNumber.matches('.btn-operand-icon')){
 
                 buttonNumber.addEventListener('click', function(event){
                     valueInputExpression.value += event.target.innerText;
