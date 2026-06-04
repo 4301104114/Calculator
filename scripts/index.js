@@ -7,9 +7,8 @@ import{
     scriptCalculator
 } from './handle_inputExpression.js';
 
-function main(elementSelector){
 
-  const Calculator = document.querySelector(`.${elementSelector}`);
+  const Calculator = document.querySelector('.wrapper-calculator');
 
 
    //inputExpression(Calculator);
@@ -31,6 +30,4 @@ function main(elementSelector){
       
    });
 
-}
 
-export { main };
