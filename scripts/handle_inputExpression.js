@@ -1,104 +1,107 @@
 
 
-let inputExpression = function( idCalculatorSelector, 
-                                inputExpressionSelector, 
-                                blockOperandSelector,
-                                blockOperatorSelector
-                              ) 
-{
-    //get all blocks with numbers
-    let blocksNumbers = idCalculatorSelector.querySelectorAll(`.${blockOperandSelector.nameFrameOperand} .${blockOperandSelector.nameContainersOperands}`);
-    console.log(blocksNumbers);
-
-    let valueInputExpression = idCalculatorSelector.querySelector(`.${inputExpressionSelector}`);
-    valueInputExpression.value = '';
-    console.log(valueInputExpression);
-
-    blocksNumbers.forEach(function(blockNumber){
-
-        let buttonsNumbers = blockNumber.querySelectorAll(`.${blockOperandSelector.nameButtonsOperands}`);
-
-        buttonsNumbers.forEach(function(buttonNumber){
-
-            if(!buttonNumber.matches(`.${blockOperandSelector.nameButtonsOperandIcon}`)){
-
-                buttonNumber.addEventListener('click', function(event){
-                    valueInputExpression.value += event.target.innerText;
-                     console.log(buttonNumber);
-                });
-            }
-            else{
-
-                buttonNumber.addEventListener('click', function(){
-                    console.log('click icon');
-                });
-            }
-
-        });
-    });
-    //get all blocks with operators
-    let blocksOperators = idCalculatorSelector.querySelectorAll(`.${blockOperatorSelector.nameFrameOperator} .${blockOperatorSelector.nameContainersOperator}`);
-    console.log(blocksOperators);
-
-    blocksOperators.forEach(function(blockOperator){
-        let buttonsOperators = blockOperator.querySelectorAll(`.${blockOperatorSelector.nameButtonsOperator}`);
-        buttonsOperators.forEach(function(buttonOperator){
-            buttonOperator.addEventListener('click', function(event){
-                valueInputExpression.value += event.target.innerText;
-                console.log(buttonOperator);
-            });
-        });
-    });
-    
-    //getValueInputExpressionForm = valueInputExpression.value;
-
-}
-
-let getValueInputExpression = function(element){
-   
-}
-
-
-let validateExpression = function(expression){
-
-}
-
-let calculateExpression = function( expression){
-
-   
-}
-
-let outputResult = function(result){
-
-}
-
 let scriptCalculator = function(elementCalculator){
     console.log(elementCalculator.frame);
+    console.log('elementCalculator.infoButtonsOperand.frameOperand: ',elementCalculator.infoButtonsOperand.frameOperand);
+    console.log('elementCalculator.infoButtonsOperand.containersOperands: ',elementCalculator.infoButtonsOperand.containersOperands);
+    console.log('elementCalculator.infoButtonsOperand.buttonsOperands: ',elementCalculator.infoButtonsOperand.buttonsOperands);
+    console.log('elementCalculator.infoButtonsOperand.buttonsOperandIcon: ',elementCalculator.infoButtonsOperand.buttonsOperandIcon);
+    console.log('elementCalculator.infoButtonsOperator.frameOperator: ',elementCalculator.infoButtonsOperator.frameOperator);
+    console.log('elementCalculator.infoButtonsOperator.containersOperator: ',elementCalculator.infoButtonsOperator.containersOperator);
+    console.log('elementCalculator.infoButtonsOperator.buttonsOperator: ',elementCalculator.infoButtonsOperator.buttonsOperator);
+    console.log('elementCalculator.blockInputExpression',elementCalculator.blockInputExpression);
+    
+    //Get the elements of the calcualtor
+    const blockInputExpression = 
+       elementCalculator.frame.querySelector(elementCalculator.blockInputExpression);
+    const frameOperands =
+        elementCalculator.frame.querySelector(elementCalculator.infoButtonsOperand.frameOperand);
+    const blocksOperands = 
+        elementCalculator.frame.querySelectorAll(elementCalculator.infoButtonsOperand.containersOperands);
 
-    console.log('frameOperand',elementCalculator.infoButtonsOperand.frameOperand);
-    console.log('containersOperands',elementCalculator.infoButtonsOperand.containersOperands);
-    console.log('buttonsOperands',elementCalculator.infoButtonsOperand.buttonsOperands);
-    console.log('buttonsOperandIcon',elementCalculator.infoButtonsOperand.buttonsOperandIcon);
-    console.log('frameOperator',elementCalculator.infoButtonsOperator.frameOperator);
-    console.log('containersOperator',elementCalculator.infoButtonsOperator.containersOperator);
-    console.log('buttonsOperator',elementCalculator.infoButtonsOperator.buttonsOperator);
-    console.log('blockInputExpression',elementCalculator.blockInputExpression);
+    const frameOperators =
+        elementCalculator.frame.querySelector(elementCalculator.infoButtonsOperator.frameOperator);
+    const blocksOperators = 
+        elementCalculator.frame.querySelectorAll(elementCalculator.infoButtonsOperator.containersOperator);
+    
+    // console.log('blockInputExpression: ', blockInputExpression);
+    // console.log('frameOperands: ', frameOperands);
+    // console.log('blocksOperands: ', blocksOperands);
+    // console.log('frameOperators: ', frameOperators);
+    // console.log('blocksOperators: ', blocksOperators);
+    
+    
+        //Definition function for input expression
+    let inputExpression = function( idCalculatorElement, 
+                                    inputExpressionElement, 
+                                    frameOperandsElement,
+                                    blocksOperandsElements,
+                                    frameOperatorsElement,
+                                    blocksOperatorsElements
+                                ) 
+    {   
+       console.log(idCalculatorElement);
+       console.log(inputExpressionElement);
+       console.log(frameOperandsElement);
+       console.log(blocksOperandsElements);
+       console.log(frameOperatorsElement);
+       console.log(blocksOperatorsElements);
+        
+        blocksOperandsElements.forEach(function(blockOperand){
+        
+            let buttonsOperands = blockOperand.querySelectorAll(elementCalculator.infoButtonsOperand.buttonsOperands);
+        
+            buttonsOperands.forEach(function(buttonOperand){
 
-  inputExpression( elementCalculator.frame,
-                   elementCalculator.blockInputExpression,
-                   {
-                      nameFrameOperand: elementCalculator.infoButtonsOperand.frameOperand,
-                      nameContainersOperands: elementCalculator.infoButtonsOperand.containersOperands,
-                      nameButtonsOperands: elementCalculator.infoButtonsOperand.buttonsOperands,
-                      nameButtonsOperandIcon: elementCalculator.infoButtonsOperand.buttonsOperandIcon
-                   },
-                   {
-                    nameFrameOperator: elementCalculator.infoButtonsOperator.frameOperator,
-                    nameContainersOperator: elementCalculator.infoButtonsOperator.containersOperator,
-                    nameButtonsOperator: elementCalculator.infoButtonsOperator.buttonsOperator
-                   }
-                );     
+                if(!buttonOperand.matches(elementCalculator.infoButtonsOperand.buttonsOperandIcon)){
 
+                    buttonOperand.addEventListener('click', function(event){
+                        //eventInputExpression.target.value += event.target.innerText;
+                        inputExpressionElement.value += event.target.innerText;
+                    
+                    });
+                }
+                else{
+
+                    buttonOperand.addEventListener('click', function(){
+                        console.log('click icon');
+                    });
+                }
+
+            });
+        });
+        
+    
+        blocksOperatorsElements.forEach(function(blockOperator){
+            let buttonsOperators = blockOperator.querySelectorAll(elementCalculator.infoButtonsOperator.buttonsOperator);
+            buttonsOperators.forEach(function(buttonOperator){
+                buttonOperator.addEventListener('click', function(event){
+                    inputExpressionElement.value += event.target.innerText;
+                    
+                });
+            });
+        });
+        
+    }
+
+ 
+    let validateExpression = function(expression){
+
+    }
+
+    let calculateExpression = function( expression){
+
+    
+    }
+
+    let outputResult = function(result){
+
+    }
+
+    inputExpression(elementCalculator.frame, blockInputExpression, frameOperands, blocksOperands, frameOperators, blocksOperators);
+     
+
+    
 }
 
-export {inputExpression, validateExpression, calculateExpression, outputResult, scriptCalculator};
+export {scriptCalculator};
