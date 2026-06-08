@@ -1,7 +1,7 @@
 
 
 let scriptCalculator = function(elementCalculator){
-    console.log(elementCalculator.frame);
+    console.log('elementCalculator.frame: ',elementCalculator.frame);
     console.log('elementCalculator.infoButtonsOperand.frameOperand: ',elementCalculator.infoButtonsOperand.frameOperand);
     console.log('elementCalculator.infoButtonsOperand.containersOperands: ',elementCalculator.infoButtonsOperand.containersOperands);
     console.log('elementCalculator.infoButtonsOperand.buttonsOperands: ',elementCalculator.infoButtonsOperand.buttonsOperands);
@@ -12,18 +12,25 @@ let scriptCalculator = function(elementCalculator){
     console.log('elementCalculator.blockInputExpression',elementCalculator.blockInputExpression);
     
     //Get the elements of the calcualtor
-    const blockInputExpression = 
-       elementCalculator.frame.querySelector(elementCalculator.blockInputExpression);
-    const frameOperands =
-        elementCalculator.frame.querySelector(elementCalculator.infoButtonsOperand.frameOperand);
-    const blocksOperands = 
-        elementCalculator.frame.querySelectorAll(elementCalculator.infoButtonsOperand.containersOperands);
 
+    const Calculator = document.querySelector(elementCalculator.frame);
+
+    const blockInputExpression = 
+       Calculator.querySelector(elementCalculator.blockInputExpression);
+
+    const frameOperands =
+        Calculator.querySelector(elementCalculator.infoButtonsOperand.frameOperand);
+
+    const blocksOperands = 
+        Calculator.querySelectorAll(elementCalculator.infoButtonsOperand.containersOperands);
+        
     const frameOperators =
-        elementCalculator.frame.querySelector(elementCalculator.infoButtonsOperator.frameOperator);
+        Calculator.querySelector(elementCalculator.infoButtonsOperator.frameOperator);
+
     const blocksOperators = 
-        elementCalculator.frame.querySelectorAll(elementCalculator.infoButtonsOperator.containersOperator);
+        Calculator.querySelectorAll(elementCalculator.infoButtonsOperator.containersOperator);
     
+    // console.log('Calculator: ', Calculator);
     // console.log('blockInputExpression: ', blockInputExpression);
     // console.log('frameOperands: ', frameOperands);
     // console.log('blocksOperands: ', blocksOperands);
@@ -47,6 +54,10 @@ let scriptCalculator = function(elementCalculator){
        console.log(frameOperatorsElement);
        console.log(blocksOperatorsElements);
         
+          
+        
+        
+            //let expression = event.target.value;
         blocksOperandsElements.forEach(function(blockOperand){
         
             let buttonsOperands = blockOperand.querySelectorAll(elementCalculator.infoButtonsOperand.buttonsOperands);
@@ -58,33 +69,35 @@ let scriptCalculator = function(elementCalculator){
                     buttonOperand.addEventListener('click', function(event){
                         //eventInputExpression.target.value += event.target.innerText;
                         inputExpressionElement.value += event.target.innerText;
-                    
+                        console.log(inputExpressionElement.value);
                     });
                 }
                 else{
 
                     buttonOperand.addEventListener('click', function(){
-                        console.log('click icon');
+                        inputExpressionElement.value = inputExpressionElement.value.slice(0, inputExpressionElement.value.length - 1);
                     });
                 }
 
             });
         });
         
-    
+
         blocksOperatorsElements.forEach(function(blockOperator){
             let buttonsOperators = blockOperator.querySelectorAll(elementCalculator.infoButtonsOperator.buttonsOperator);
             buttonsOperators.forEach(function(buttonOperator){
                 buttonOperator.addEventListener('click', function(event){
                     inputExpressionElement.value += event.target.innerText;
-                    
+                    console.log(inputExpressionElement.value);
                 });
             });
         });
+            
+            
         
     }
 
- 
+  
     let validateExpression = function(expression){
 
     }
@@ -98,10 +111,14 @@ let scriptCalculator = function(elementCalculator){
 
     }
 
-    inputExpression(elementCalculator.frame, blockInputExpression, frameOperands, blocksOperands, frameOperators, blocksOperators);
-     
+    inputExpression(Calculator, blockInputExpression, frameOperands, blocksOperands, frameOperators, blocksOperators);
 
-    
+    const btnEqual = Calculator.querySelector('.btn-equal');
+
+    btnEqual.addEventListener('click', function(){
+       console.log('Expression: ',  blockInputExpression.value);
+    });
+  
 }
 
 export {scriptCalculator};

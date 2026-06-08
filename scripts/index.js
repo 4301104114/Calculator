@@ -2,12 +2,12 @@ import {add,power} from './calcalator.js';
 import{ scriptCalculator} from './handle_inputExpression.js';
 
 
-  const Calculator = document.querySelector('.wrapper-calculator');
+ 
 
 
    //inputExpression(Calculator);
    scriptCalculator({
-       frame: Calculator,
+       frame: '.wrapper-calculator',
        blockInputExpression: '.calculator-monitor__inputExpression',   
        infoButtonsOperand:{
            frameOperand:'.calculator-function__btnsOperands',
