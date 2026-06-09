@@ -1,4 +1,4 @@
-import {add,power} from './calcalator.js';
+import {convertArrayExpression} from './calcalator.js';
 import{ scriptCalculator} from './handle_inputExpression.js';
 
 
@@ -19,9 +19,19 @@ import{ scriptCalculator} from './handle_inputExpression.js';
            frameOperator: '.calculator-function__btnsOperators',
            containersOperator: '.calculator-function__btnsOperators-block',
            buttonsOperator: '.btn-operator',
-          
+           buttonOutputResult:'.btn-equal'
        },
       
    });
 
 
+let expression = '1.2+2+3-2*4+(5-1.2)-3^2';
+console.log(expression);
+
+for(let value of expression){
+    console.log(value);
+}
+
+let result = convertArrayExpression(expression);
+console.log(result);
+console.log(Number.parseFloat('2.1') +Number.parseFloat('3.4'));

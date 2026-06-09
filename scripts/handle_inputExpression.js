@@ -9,6 +9,8 @@ let scriptCalculator = function(elementCalculator){
     console.log('elementCalculator.infoButtonsOperator.frameOperator: ',elementCalculator.infoButtonsOperator.frameOperator);
     console.log('elementCalculator.infoButtonsOperator.containersOperator: ',elementCalculator.infoButtonsOperator.containersOperator);
     console.log('elementCalculator.infoButtonsOperator.buttonsOperator: ',elementCalculator.infoButtonsOperator.buttonsOperator);
+    console.log('elementCalculator.infoButtonsOperator.buttonsOutputResult: ',elementCalculator.infoButtonsOperator.buttonOutputResult);
+
     console.log('elementCalculator.blockInputExpression',elementCalculator.blockInputExpression);
     
     //Get the elements of the calcualtor
@@ -103,7 +105,9 @@ let scriptCalculator = function(elementCalculator){
     }
 
     let calculateExpression = function( expression){
-
+         
+       
+      
     
     }
 
@@ -112,13 +116,12 @@ let scriptCalculator = function(elementCalculator){
     }
 
     inputExpression(Calculator, blockInputExpression, frameOperands, blocksOperands, frameOperators, blocksOperators);
+   
 
-    const btnEqual = Calculator.querySelector('.btn-equal');
-
-    btnEqual.addEventListener('click', function(){
-       console.log('Expression: ',  blockInputExpression.value);
-    });
-  
+     const btnEqual = Calculator.querySelector(elementCalculator.infoButtonsOperator.buttonOutputResult);
+        btnEqual.addEventListener('click', function(){
+            console.log('expression: ', blockInputExpression.value);
+        });
 }
 
 export {scriptCalculator};
