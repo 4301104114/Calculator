@@ -54,18 +54,14 @@ let convertArrayExpression= function(stringExpression){
                      
                     arrayResult.push(value);
                 }
-                else{
-                    if(value===')'){
-
-                    }
-                }
+            
             }
         }    
     }
 
     if(number !== ''){
         let parseNumber = Number.parseFloat(number);
-        arrayResult.push(number);
+        arrayResult.push(parseNumber);
     }
 
     return arrayResult;
