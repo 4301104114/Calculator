@@ -1,4 +1,4 @@
-import {convertArrayExpression} from './calcalator.js';
+import {convertArrayExpression} from './calculator.js';
 import{ scriptCalculator} from './handle_inputExpression.js';
 
 
