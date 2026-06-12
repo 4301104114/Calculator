@@ -25,7 +25,7 @@ import{ scriptCalculator} from './handle_inputExpression.js';
    });
 
 
-let expression = '1.2+2+3-2*4+(5-1.2)-3^2';
+let expression = '1+26*3-(8+2*(9+1))';
 console.log(expression);
 
 for(let value of expression){
