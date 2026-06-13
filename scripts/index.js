@@ -1,4 +1,4 @@
-import {convertArrayExpression} from './calculator.js';
+import {convertArrayExpression, precedence, isRightAssociative, infixToPostfix, infixToPostfix2} from './calculator.js';
 import{ scriptCalculator} from './handle_inputExpression.js';
 
 
@@ -35,3 +35,8 @@ for(let value of expression){
 let result = convertArrayExpression(expression);
 console.log(result);
 console.log(Number.parseFloat('2.1') +Number.parseFloat('3.4'));
+console.log(expression);
+
+let arrayExpression = convertArrayExpression(expression);
+console.log(infixToPostfix(expression));
+console.log(infixToPostfix2(arrayExpression));
