@@ -11,7 +11,7 @@ let convertArrayExpression= function(stringExpression){
         }
         else{
             console.log(number)
-            if(value==='+' || value==='-' || value==='*' || value==='/' || value==='^'||value===')'){
+            if(value==='+' || value==='-' || value==='*' || value==='/' || value==='^'||value===')' || value === '('){
                 if(number!==''){
 
                    
@@ -22,13 +22,13 @@ let convertArrayExpression= function(stringExpression){
                     arrayResult.push(value);
                 }
             }
-            else{
-                if(value === '('){
+            // else{
+            //     if(value === '('){
                      
-                    arrayResult.push(value);
-                }
+            //         arrayResult.push(value);
+            //     }
             
-            }
+            // }
         }    
     }
 
@@ -102,6 +102,7 @@ function infixToPostfix(expression) {
     return result;
 }
 
+
 function infixToPostfix2(arrayExpression) {
     let stackOperators = [];
     let result = [];
@@ -145,4 +146,30 @@ function infixToPostfix2(arrayExpression) {
 
     return result;
 }
-export {  convertArrayExpression, precedence, isRightAssociative, infixToPostfix, infixToPostfix2 };
+
+//The function evaluation of postfix expression
+function evaluatePostfixExpression(arrExpression) {
+    let stackOperations = [];
+
+    for (let token of arrExpression) {
+        
+        // If token is a number
+        if (!isNaN(token)) {
+            stackOperations.push(Number.parseFloat(token));
+        } 
+        
+        // Otherwise, it's an operator
+        else {
+            let val1 = stackOperations.pop();
+            let val2 = stackOperations.pop();
+
+            if (token === '+') stackOperations.push(val2 + val1);
+            else if (token === '-') stackOperations.push(val2 - val1);
+            else if (token === '*') stackOperations.push(val2 * val1);
+            else if (token === '/') stackOperations.push(val2 / val1);
+            else if (token === '^') stackOperations.push(Math.pow(val2, val1));
+        }
+    }
+    return stackOperations.pop();
+}
+export {  convertArrayExpression, precedence, isRightAssociative, infixToPostfix, infixToPostfix2, evaluatePostfixExpression };

@@ -1,4 +1,4 @@
-
+import { convertArrayExpression, precedence, infixToPostfix, infixToPostfix2, evaluatePostfixExpression } from "./calculator.js";
 
 let scriptCalculator = function(elementCalculator){
     console.log('elementCalculator.frame: ',elementCalculator.frame);
@@ -104,24 +104,30 @@ let scriptCalculator = function(elementCalculator){
 
     }
 
-    let calculateExpression = function( expression){
-         
-       
-      
-    
+
+    let calculateExpression = function(){
+
+        let arrExpression = convertArrayExpression(blockInputExpression.value);
+        let arrPostfixExpression = infixToPostfix2(arrExpression);
+        let resultExpression = evaluatePostfixExpression(arrPostfixExpression);
+        return resultExpression;   
     }
 
-    let outputResult = function(result){
+    
+    let outputResult = function(){
 
+        const btnEqual = Calculator.querySelector(elementCalculator.infoButtonsOperator.buttonOutputResult);
+        btnEqual.addEventListener('click', function(){
+            //console.log('expression: ', blockInputExpression.value);
+            let result = calculateExpression();
+            //console.log(result);
+
+            blockInputExpression.value = result.toString();
+        });
     }
 
     inputExpression(Calculator, blockInputExpression, frameOperands, blocksOperands, frameOperators, blocksOperators);
-   
-
-     const btnEqual = Calculator.querySelector(elementCalculator.infoButtonsOperator.buttonOutputResult);
-        btnEqual.addEventListener('click', function(){
-            console.log('expression: ', blockInputExpression.value);
-        });
+    outputResult();
 }
 
 export {scriptCalculator};
