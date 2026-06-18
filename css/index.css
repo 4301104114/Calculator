@@ -116,10 +116,16 @@ body {
    margin: 20px 0 0 0px;
 }
 
+.calculator-function__btnsOperators-block .btn-operator.btn-off{
+  background-color: #404258;
+  color: #F49D1A;
+}
+
 .calculator-function__btnsOperators-block .btn-operator:hover{
    opacity: 0.8;
 }
  
+
 .calculator-function__btnsOperators-block .btn-equal {
    flex: 1;
    background-color:#B2B2B2 ;
@@ -130,6 +136,7 @@ body {
    font-size: 40px;
    margin: 20px 0 0 0px;
 }
+
 
 .calculator-function__btnsOperators-block .btn-equal:hover {
    opacity: 0.8;

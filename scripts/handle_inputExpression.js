@@ -10,6 +10,7 @@ let scriptCalculator = function(elementCalculator){
     console.log('elementCalculator.infoButtonsOperator.containersOperator: ',elementCalculator.infoButtonsOperator.containersOperator);
     console.log('elementCalculator.infoButtonsOperator.buttonsOperator: ',elementCalculator.infoButtonsOperator.buttonsOperator);
     console.log('elementCalculator.infoButtonsOperator.buttonsOutputResult: ',elementCalculator.infoButtonsOperator.buttonOutputResult);
+    console.log('elementCalculator.infoButtonsOperator.buttonsOff: ',elementCalculator.infoButtonsOperator.buttonOff);
 
     console.log('elementCalculator.blockInputExpression',elementCalculator.blockInputExpression);
     
@@ -31,6 +32,8 @@ let scriptCalculator = function(elementCalculator){
 
     const blocksOperators = 
         Calculator.querySelectorAll(elementCalculator.infoButtonsOperator.containersOperator);
+
+    
     
     // console.log('Calculator: ', Calculator);
     // console.log('blockInputExpression: ', blockInputExpression);
@@ -88,10 +91,22 @@ let scriptCalculator = function(elementCalculator){
         blocksOperatorsElements.forEach(function(blockOperator){
             let buttonsOperators = blockOperator.querySelectorAll(elementCalculator.infoButtonsOperator.buttonsOperator);
             buttonsOperators.forEach(function(buttonOperator){
-                buttonOperator.addEventListener('click', function(event){
-                    inputExpressionElement.value += event.target.innerText;
-                    console.log(inputExpressionElement.value);
-                });
+                if(!buttonOperator.matches(elementCalculator.infoButtonsOperator.buttonOff)){
+
+                    buttonOperator.addEventListener('click', function(event){
+                        //console.log(event.target);
+                        inputExpressionElement.value += event.target.innerText;
+                        console.log(inputExpressionElement.value);
+                    });
+                }
+                else{
+                   
+                     buttonOperator.addEventListener('click', function(event){
+                         inputExpressionElement.value = '';
+                       
+                    });
+                }
+    
             });
         });
             
