@@ -1,18 +1,18 @@
 import { convertArrayExpression, precedence, infixToPostfix, infixToPostfix2, evaluatePostfixExpression } from "./calculator.js";
 
 let scriptCalculator = function(elementCalculator){
-    console.log('elementCalculator.frame: ',elementCalculator.frame);
-    console.log('elementCalculator.infoButtonsOperand.frameOperand: ',elementCalculator.infoButtonsOperand.frameOperand);
-    console.log('elementCalculator.infoButtonsOperand.containersOperands: ',elementCalculator.infoButtonsOperand.containersOperands);
-    console.log('elementCalculator.infoButtonsOperand.buttonsOperands: ',elementCalculator.infoButtonsOperand.buttonsOperands);
-    console.log('elementCalculator.infoButtonsOperand.buttonsOperandIcon: ',elementCalculator.infoButtonsOperand.buttonsOperandIcon);
-    console.log('elementCalculator.infoButtonsOperator.frameOperator: ',elementCalculator.infoButtonsOperator.frameOperator);
-    console.log('elementCalculator.infoButtonsOperator.containersOperator: ',elementCalculator.infoButtonsOperator.containersOperator);
-    console.log('elementCalculator.infoButtonsOperator.buttonsOperator: ',elementCalculator.infoButtonsOperator.buttonsOperator);
-    console.log('elementCalculator.infoButtonsOperator.buttonsOutputResult: ',elementCalculator.infoButtonsOperator.buttonOutputResult);
-    console.log('elementCalculator.infoButtonsOperator.buttonsOff: ',elementCalculator.infoButtonsOperator.buttonOff);
+    // console.log('elementCalculator.frame: ',elementCalculator.frame);
+    // console.log('elementCalculator.infoButtonsOperand.frameOperand: ',elementCalculator.infoButtonsOperand.frameOperand);
+    // console.log('elementCalculator.infoButtonsOperand.containersOperands: ',elementCalculator.infoButtonsOperand.containersOperands);
+    // console.log('elementCalculator.infoButtonsOperand.buttonsOperands: ',elementCalculator.infoButtonsOperand.buttonsOperands);
+    // console.log('elementCalculator.infoButtonsOperand.buttonsOperandIcon: ',elementCalculator.infoButtonsOperand.buttonsOperandIcon);
+    // console.log('elementCalculator.infoButtonsOperator.frameOperator: ',elementCalculator.infoButtonsOperator.frameOperator);
+    // console.log('elementCalculator.infoButtonsOperator.containersOperator: ',elementCalculator.infoButtonsOperator.containersOperator);
+    // console.log('elementCalculator.infoButtonsOperator.buttonsOperator: ',elementCalculator.infoButtonsOperator.buttonsOperator);
+    // console.log('elementCalculator.infoButtonsOperator.buttonsOutputResult: ',elementCalculator.infoButtonsOperator.buttonOutputResult);
+    // console.log('elementCalculator.infoButtonsOperator.buttonsOff: ',elementCalculator.infoButtonsOperator.buttonOff);
 
-    console.log('elementCalculator.blockInputExpression',elementCalculator.blockInputExpression);
+    // console.log('elementCalculator.blockInputExpression',elementCalculator.blockInputExpression);
     
     //Get the elements of the calcualtor
 
@@ -52,12 +52,12 @@ let scriptCalculator = function(elementCalculator){
                                     blocksOperatorsElements
                                 ) 
     {   
-       console.log(idCalculatorElement);
-       console.log(inputExpressionElement);
-       console.log(frameOperandsElement);
-       console.log(blocksOperandsElements);
-       console.log(frameOperatorsElement);
-       console.log(blocksOperatorsElements);
+    //    console.log(idCalculatorElement);
+    //    console.log(inputExpressionElement);
+    //    console.log(frameOperandsElement);
+    //    console.log(blocksOperandsElements);
+    //    console.log(frameOperatorsElement);
+    //    console.log(blocksOperatorsElements);
         
           
         
@@ -115,10 +115,6 @@ let scriptCalculator = function(elementCalculator){
     }
 
   
-    let validateExpression = function(expression){
-
-    }
-
 
     let calculateExpression = function(){
 
@@ -136,8 +132,14 @@ let scriptCalculator = function(elementCalculator){
             //console.log('expression: ', blockInputExpression.value);
             let result = calculateExpression();
             //console.log(result);
+            if(Number.isFinite(result)){
+                blockInputExpression.value = result.toString();
+            }
+            else{
+                 blockInputExpression.value = "Syntax Error";
+            }
 
-            blockInputExpression.value = result.toString();
+           
         });
     }
 
