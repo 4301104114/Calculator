@@ -136,7 +136,7 @@ let scriptCalculator = function(elementCalculator){
                 blockInputExpression.value = result.toString();
             }
             else{
-                 blockInputExpression.value = "Syntax Error";
+                 blockInputExpression.value = elementCalculator.messageError;
             }
 
            

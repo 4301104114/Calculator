@@ -19,6 +19,7 @@ scriptCalculator({
         buttonOutputResult:'.btn-equal',
         buttonOff: '.btn-off'
     },
+    messageError: 'Error: Invalid expression'
     
 });
 
